@@ -24,9 +24,8 @@
 
 ### Semester Assignments
 
-- Link to Assignment 1: [**Assignment 1**](URL_TO_ASSIGNMENT_1) <!-- Replace with actual URL -->
-- Link to Assignment 2: [**Assignment 2**](URL_TO_ASSIGNMENT_2) <!-- Replace with actual URL -->
-- Link to Assignment 3: [**Assignment 3**](URL_TO_ASSIGNMENT_3) <!-- Replace with actual URL -->
+- Link to Assignment 1: [**Assignment 1**](https://fesb-my.sharepoint.com/:v:/g/personal/jmamic02_fesb_hr/Ec0dbe_3hXBOm8p5DRLLnIABwRWxFKf4VLvikHaAabELuw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=FhFkom) <!-- Replace with actual URL -->
+
 <!-- Add more assignments as necessary -->
 
 ## Project Requirements
