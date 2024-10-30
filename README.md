@@ -26,6 +26,7 @@
 
 - Link to Assignment 1: [**Assignment 1**](https://fesb-my.sharepoint.com/:v:/g/personal/jmamic02_fesb_hr/Ec0dbe_3hXBOm8p5DRLLnIABwRWxFKf4VLvikHaAabELuw?nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJPbmVEcml2ZUZvckJ1c2luZXNzIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXciLCJyZWZlcnJhbFZpZXciOiJNeUZpbGVzTGlua0NvcHkifX0&e=FhFkom) <!-- Replace with actual URL -->
 
+- Link to Assignment 2: [**Assignment 2**](https://fesb-my.sharepoint.com/:w:/g/personal/jmamic02_fesb_hr/EeoSlfbXMLJMmkoRufGN0b4Bbp5COl3XfzVXUHdMalh4jQ?e=VWfNMv)
 <!-- Add more assignments as necessary -->
 
 ## Project Requirements
