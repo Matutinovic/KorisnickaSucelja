@@ -34,21 +34,19 @@ const pages: Page[] = [
 ];
 
 function processPage(page: Page, index: number, pathname: string) {
+  const isActive = page.path === "/" ? pathname === page.path : pathname.startsWith(page.path);
+
   return (
     <li key={index}>
       <Link
-        href={page.path}
-        className={
-          page.path === "/"
-            ? pathname === page.path
-              ? "font-extrabold"
-              : ""
-            : pathname.startsWith(page.path)
-            ? "font-extrabold"
-            : ""
-        }
-      >
-        {page.title}
+         href={page.path}
+         className={`px-4 py-2 rounded-lg transition-all duration-300 ease-in-out ${
+           isActive
+             ? "bg-blue-600 text-white font-semibold shadow-lg"
+             : "text-gray-700 hover:bg-gray-200 hover:text-blue-600"
+         }`}
+       >
+         {page.title}
       </Link>
     </li>
   );
