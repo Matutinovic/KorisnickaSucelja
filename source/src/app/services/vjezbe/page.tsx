@@ -1,3 +1,8 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Vjezbe",
+};
 export default function Vjezbe() {
     return (
       <main className="flex min-h-screen flex-col items-center p-10">

@@ -15,7 +15,10 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "fitnessAppJT",
+  title: {
+    template: "%s | designmatters.",
+    default: "designmatters.",
+  },
   description: "Light weight baby",
 };
 
@@ -26,7 +29,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} bg-gradient-to-r from-white to-[#C6DDE8] min-h-screen overflow-x-hidden`}
+      >
         <Navigation />
         {children}
       </body>
