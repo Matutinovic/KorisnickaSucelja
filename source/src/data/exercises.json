@@ -1,0 +1,142 @@
+[
+  {
+    "id": 1,
+    "name": "Bench Press",
+    "target": "Chest",
+    "equipment": "Barbell",
+    "instructions": "Lie flat on a bench and press the barbell upward."
+  },
+  {
+    "id": 2,
+    "name": "Incline Dumbbell Press",
+    "target": "Upper Chest",
+    "equipment": "Dumbbells",
+    "instructions": "Lie on an incline bench and press dumbbells upward."
+  },
+  {
+    "id": 3,
+    "name": "Push-ups",
+    "target": "Chest",
+    "equipment": "Bodyweight",
+    "instructions": "Start in plank position and lower your chest to the ground."
+  },
+  {
+    "id": 4,
+    "name": "Pull-ups",
+    "target": "Back",
+    "equipment": "Bar",
+    "instructions": "Grip the bar with palms facing away and pull your body up."
+  },
+  {
+    "id": 5,
+    "name": "Lat Pulldown",
+    "target": "Lats",
+    "equipment": "Cable Machine",
+    "instructions": "Pull the bar down towards your chest while seated."
+  },
+  {
+    "id": 6,
+    "name": "Deadlift",
+    "target": "Lower Back",
+    "equipment": "Barbell",
+    "instructions": "Lift the barbell from the floor to a standing position."
+  },
+  {
+    "id": 7,
+    "name": "Barbell Row",
+    "target": "Back",
+    "equipment": "Barbell",
+    "instructions": "Bend forward and row the barbell towards your waist."
+  },
+  {
+    "id": 8,
+    "name": "Bicep Curl",
+    "target": "Biceps",
+    "equipment": "Dumbbells",
+    "instructions": "Curl the dumbbells upward while keeping your elbows still."
+  },
+  {
+    "id": 9,
+    "name": "Tricep Dips",
+    "target": "Triceps",
+    "equipment": "Bodyweight",
+    "instructions": "Lower your body on parallel bars to target your triceps."
+  },
+  {
+    "id": 10,
+    "name": "Overhead Tricep Extension",
+    "target": "Triceps",
+    "equipment": "Dumbbell",
+    "instructions": "Extend a dumbbell overhead with both hands."
+  },
+  {
+    "id": 11,
+    "name": "Squats",
+    "target": "Legs",
+    "equipment": "Barbell",
+    "instructions": "Lower your body down into a squat position with a barbell."
+  },
+  {
+    "id": 12,
+    "name": "Lunges",
+    "target": "Legs",
+    "equipment": "Dumbbells",
+    "instructions": "Step forward into a lunge position while holding dumbbells."
+  },
+  {
+    "id": 13,
+    "name": "Leg Press",
+    "target": "Quads",
+    "equipment": "Machine",
+    "instructions": "Press the platform upward with your legs."
+  },
+  {
+    "id": 14,
+    "name": "Leg Curls",
+    "target": "Hamstrings",
+    "equipment": "Machine",
+    "instructions": "Curl your legs towards your body while seated."
+  },
+  {
+    "id": 15,
+    "name": "Leg Extensions",
+    "target": "Quads",
+    "equipment": "Machine",
+    "instructions": "Extend your legs upward while seated."
+  },
+  {
+    "id": 16,
+    "name": "Calf Raises",
+    "target": "Calves",
+    "equipment": "Bodyweight",
+    "instructions": "Raise your heels off the ground to target your calves."
+  },
+  {
+    "id": 17,
+    "name": "Plank",
+    "target": "Core",
+    "equipment": "Bodyweight",
+    "instructions": "Hold your body straight in a plank position."
+  },
+  {
+    "id": 18,
+    "name": "Russian Twists",
+    "target": "Obliques",
+    "equipment": "Bodyweight",
+    "instructions": "Twist your torso while seated with knees bent."
+  },
+  {
+    "id": 19,
+    "name": "Crunches",
+    "target": "Abs",
+    "equipment": "Bodyweight",
+    "instructions": "Perform a crunch by raising your torso towards your knees."
+  },
+  {
+    "id": 20,
+    "name": "Mountain Climbers",
+    "target": "Core",
+    "equipment": "Bodyweight",
+    "instructions": "Alternate bringing your knees toward your chest in a plank."
+  }
+]

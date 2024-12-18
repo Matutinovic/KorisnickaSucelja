@@ -27,8 +27,8 @@ function processPage(page: Page, index: number, pathname: string) {
         href={page.path}
         className={`px-4 py-2 text-xl rounded-lg transition-all duration-300 ease-in-out ${
           isActive
-            ? "bg-blue-600 text-white font-semibold shadow-lg"
-            : "text-white hover:bg-gray-200 hover:text-blue-600"
+            ? "bg-[#2A8EA7] text-white font-semibold shadow-lg"
+            : "text-white hover:bg-gray-200 hover:text-[#F6AE87]"
         }`}
       >
         {page.title}
