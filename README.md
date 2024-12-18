@@ -29,6 +29,11 @@
 - Link to Assignment 2: [**Assignment 2**](https://fesb-my.sharepoint.com/:w:/g/personal/jmamic02_fesb_hr/EeoSlfbXMLJMmkoRufGN0b4Bbp5COl3XfzVXUHdMalh4jQ?e=VWfNMv)
 <!-- Add more assignments as necessary -->
 
+
+- - Link to your final report: [**Final Report**](https://korisnicka-sucelja-pi.vercel.app/) <!-- Replace with actual URL -->
+ 
+  - - Link to Assignment 4: [**Assignment 4**](https://www.figma.com/proto/iUN7XTGTXEssFOOMhstIc3/Untitled?node-id=1-2&node-type=frame&t=xR4Vatgv3sjTDzaO-1&scaling=scale-down-width&content-scaling=fixed&page-id=0%3A1)
+<!-- Add more assignments as necessary -->
 ## Project Requirements
 
 ### Web Application Requirements
