@@ -15,17 +15,17 @@ type ExerciseDetailsProps = {
   params: { exercise: string };
 };
 
-// Funkcija za dohvat svih vježbi iz lokalnog JSON file-a
+// Function to fetch all exercises from the local JSON file
 async function getExercises(): Promise<Exercise[]> {
   const filePath = path.join(process.cwd(), "src", "data", "exercises.json");
   const fileData = fs.readFileSync(filePath, "utf-8");
   return JSON.parse(fileData) as Exercise[];
 }
 
-// Funkcija za dohvat jedne vježbe po ID-u
+// Function to get an exercise by ID
 async function getExerciseById(id: string): Promise<Exercise | undefined> {
   const exercises = await getExercises();
-  return exercises.find((exercise) => exercise.id === id);
+  return exercises.find((exercise) => String(exercise.id) === id);
 }
 
 export default async function ExerciseDetails({
@@ -37,6 +37,12 @@ export default async function ExerciseDetails({
     return (
       <main className="flex min-h-screen flex-col items-center p-10">
         <h1 className="text-3xl font-bold text-red-600">Exercise Not Found</h1>
+        <Link
+          href="/services/trening"
+          className="inline-flex items-center text-gray-600 hover:text-gray-900 mt-4"
+        >
+          Back to all exercises
+        </Link>
       </main>
     );
   }
@@ -51,6 +57,7 @@ export default async function ExerciseDetails({
           &larr; Back to all exercises
         </Link>
         <h1 className="text-3xl font-extrabold mb-4">{exercise.name}</h1>
+        {/* Uncomment below to show the gif if available */}
         {exercise.gifUrl && (
           <img
             src={exercise.gifUrl}

@@ -39,7 +39,7 @@ export function Navigation() {
   const pathname = usePathname();
   console.log(pathname);
   return (
-    <ul className="flex justify-center space-x-4 mt-8">
+    <ul className="flex justify-center space-x-4 mt-20">
       {pages.map((page, index) => processPage(page, index, pathname))}
     </ul>
   );
