@@ -20,6 +20,15 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+
+@media (max-width: 600px) {
+  body {
+    background-attachment: fixed; /* Fiksira pozadinu pri skrolovanju */
+    background-position: center; /* Centrirana na mobilnim uređajima */
+    background-size: cover; /* Prilagođava pozadinu ekranu */
+  }
+}
+
 @layer utilities {
   .text-balance {
     text-wrap: balance;

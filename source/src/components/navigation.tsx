@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
 
 type Page = {
   title: string;
@@ -39,9 +40,26 @@ function processPage(page: Page, index: number, pathname: string) {
 
 export function Navigation() {
   const pathname = usePathname();
+  const [isMenuOpen, setMenuOpen] = useState(false);
+
   return (
-    <ul className="absolute top-4 right-4 flex space-x-6 p-2 rounded-lg backdrop-blur-md shadow-lg z-10">
-      {pages.map((page, index) => processPage(page, index, pathname))}
-    </ul>
+    <nav className="absolute top-4 right-4 z-10">
+      {/* Hamburger button (visible on mobile) */}
+      <button
+        className="block lg:hidden text-white text-2xl p-2 rounded-md bg-[#2A8EA7]"
+        onClick={() => setMenuOpen(!isMenuOpen)}
+      >
+        ☰
+      </button>
+
+      {/* Navigation menu */}
+      <ul
+        className={`flex flex-col lg:flex-row items-center space-y-4 lg:space-y-0 lg:space-x-6 p-4 lg:p-2 rounded-lg backdrop-blur-md shadow-lg transition-all duration-300 ease-in-out ${
+          isMenuOpen ? "block" : "hidden lg:flex"
+        }`}
+      >
+        {pages.map((page, index) => processPage(page, index, pathname))}
+      </ul>
+    </nav>
   );
 }
