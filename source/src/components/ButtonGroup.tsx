@@ -1,6 +1,6 @@
 "use client";
 const ButtonGroup = () => (
-  <div className="absolute left-[10%] top-[68%] flex space-x-10 z-20">
+  <div className="absolute left-[5%] top-[72%] sm:left-[10%] sm:top-[68%] flex space-x-4 sm:space-x-10 z-20">
     <button className="w-48 px-6 py-3 text-white bg-black text-xl font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300">
       SIGN IN
     </button>

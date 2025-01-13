@@ -54,39 +54,42 @@ const Page = () => (
   </div>
 </div>
 
-    <div className="h-[800px]"></div>
+<div className="h-[800px]"></div>
 
-    {/* Novi */}
-    <div className="flex justify-between items-center mt-20 px-10">
-      {/* Slike */}
-      <div className="flex-shrink-0 mr-10">
-        <Image
-          src="/benc.png"
-          alt="Benc"
-          width={400}
-          height={300}
-          className="rounded-lg"
-        />
-      </div>
+{/* Novi */}
+<div className="flex flex-col sm:flex-row justify-between items-center mt-20 px-5 sm:px-10">
+  {/* Slike */}
+  <div className="flex-shrink-0 mb-6 sm:mb-0 sm:mr-10">
+    <Image
+      src="/benc.png"
+      alt="Benc"
+      width={400}
+      height={300}
+      className="rounded-lg"
+    />
+  </div>
 
-      {/* Natuknice s desne strane */}
-      <BulletPoints />
-    </div>
+  {/* Natuknice s desne strane */}
+  <BulletPoints />
+</div>
 
-    <div className="h-[100px]"></div>
-    <div className="flex justify-between items-center mt-20 px-10">
-      <BulletPoints2 />
+<div className="h-[100px]"></div>
+<div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center mt-20 px-5 sm:px-10">
+  {/* BulletPoints2 */}
+  <BulletPoints2 />
 
-      <div className="flex-shrink-0 mr-10 z-10">
-        <Image
-          src="/dijagram.png"
-          alt="Benc"
-          width={400}
-          height={300}
-          className="rounded-lg"
-        />
-      </div>
-    </div>
+  {/* Slika */}
+  <div className="flex-shrink-0 sm:mr-10 z-10 mt-6 sm:mt-0">
+    <Image
+      src="/dijagram.png"
+      alt="Benc"
+      width={400}
+      height={300}
+      className="rounded-lg"
+    />
+  </div>
+</div>
+
     
     <Footer /> 
   </div>
