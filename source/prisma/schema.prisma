@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL" )
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  createdAt DateTime @default(now())
+  trainings Training[]
+}
+
+model Training {
+  id          String           @id @default(cuid())
+  name        String
+  createdAt   DateTime         @default(now())
+  user        User             @relation(fields: [userId], references: [id])
+  userId      String
+  exercises   ExerciseEntry[]
+  weeks       TrainingOnWeek[]
+}
+
+model Week {
+  id          String           @id @default(cuid())
+  number      Int
+  createdAt   DateTime         @default(now())
+  trainings   TrainingOnWeek[]
+  exercises   ExerciseEntry[] 
+}
+
+
+model TrainingOnWeek {
+  id          String   @id @default(cuid())
+  training    Training @relation(fields: [trainingId], references: [id])
+  trainingId  String
+  week        Week     @relation(fields: [weekId], references: [id])
+  weekId      String
+
+  @@unique([trainingId, weekId]) // sprječava duple zapise
+}
+
+model ExerciseEntry {
+  id         String   @id @default(cuid())
+  training   Training @relation(fields: [trainingId], references: [id])
+  trainingId String
+
+  week       Week     @relation(fields: [weekId], references: [id])
+  weekId     String
+
+  name       String
+  sets       Int
+  reps       Int
+  weight     Float
+}
+

@@ -1,18 +1,15 @@
 "use client";
 
-import Link from "next/link";
 import { useState, FormEvent } from "react";
-import { useRouter } from "next/navigation";
 
-export default function LoginPage() {
+export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
 
-    const res = await fetch("/api/login", {
+    const res = await fetch("/api/register", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password }),
@@ -20,20 +17,17 @@ export default function LoginPage() {
 
     const data = await res.json();
 
-    if (data.success && data.userId) {
-      alert("Uspješna prijava!");
-      localStorage.setItem("userId", data.userId); // spremi korisnikov ID
-      router.push("/services");
-      // Možeš redirectati korisnika na dashboard, npr:
-      // router.push("/dashboard");
+    if (data.success) {
+      alert("Registracija uspješna!");
+      // redirect to login
     } else {
-      alert(data.message || "Neuspješna prijava");
+      alert(data.message || "Greška pri registraciji");
     }
   };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-10">
-      <h1 className="text-4xl font-bold mb-6">Prijava</h1>
+      <h1 className="text-4xl font-bold mb-6">Registracija</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-80">
         <input
           type="email"
@@ -51,17 +45,10 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit" className="bg-blue-600 text-white p-2 rounded">
-          Prijavi se
+        <button type="submit" className="bg-green-600 text-white p-2 rounded">
+          Registriraj se
         </button>
       </form>
-
-      <p className="text-sm mt-4">
-        Nemaš račun?{" "}
-        <Link href="/register" className="text-blue-600 underline">
-          Registriraj se
-        </Link>
-      </p>
     </main>
   );
 }

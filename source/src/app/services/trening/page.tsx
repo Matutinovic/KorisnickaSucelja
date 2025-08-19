@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import Link from "next/link";
+import ExerciseFilter from "@/components/ExerciseFilter";
 
 type Exercise = {
   id: string;
@@ -23,24 +24,9 @@ const PAGE_SIZE = 6;
 
 // Funkcija za dohvat vježbi iz lokalnog JSON file-a
 async function getExercises(): Promise<Exercise[]> {
-  const filePath = path.join(process.cwd(), "src", "data", "exercises.json");
-  const fileData = fs.readFileSync(filePath, "utf-8");
+  const filePath = path.join(process.cwd(), "src", "data", "exercises.json"); //korijen spaja dijelove u ispravan path do .json
+  const fileData = fs.readFileSync(filePath, "utf-8"); //cita sadrzaj i vraca kao tekst
   return JSON.parse(fileData) as Exercise[];
-}
-
-function processExercise(exercise: Exercise) {
-  const { id, name, bodyPart } = exercise;
-  return (
-    <li key={id} className="mb-4">
-      <Link
-        href={`/services/trening/${id}`}
-        className="block p-6 bg-white rounded-lg border border-gray-200 shadow-md hover:bg-gray-100 transition-colors duration-200"
-      >
-        <h2 className="text-2xl font-bold mb-2">{name}</h2>
-        <p className="text-gray-700">Body Part: {bodyPart}</p>
-      </Link>
-    </li>
-  );
 }
 
 function Pagination({ currentPage, pagesCount }: PaginationProps) {
@@ -79,10 +65,12 @@ function Pagination({ currentPage, pagesCount }: PaginationProps) {
   );
 }
 
-export default async function TrainingPage({ searchParams }: TrainingPageProps) {
+export default async function TrainingPage({
+  searchParams,
+}: TrainingPageProps) {
   const allExercises = await getExercises();
   const totalExercises = allExercises.length;
-  const pagesCount = Math.ceil(totalExercises / PAGE_SIZE);
+  const pagesCount = Math.ceil(totalExercises / PAGE_SIZE); //npr 2.2 vraca 3, 2.0 vraca 3, -2.2 vraca -2
 
   const currentPage = Math.min(
     /^[1-9][0-9]*$/.test(searchParams.page) ? Number(searchParams.page) : 1,
@@ -96,7 +84,7 @@ export default async function TrainingPage({ searchParams }: TrainingPageProps) 
     <main className="flex min-h-screen flex-col items-center p-10">
       <h1 className="text-4xl font-extrabold mb-10">All Exercises</h1>
       <Pagination currentPage={currentPage} pagesCount={pagesCount} />
-      <ul className="w-full max-w-2xl">{exercises.map(processExercise)}</ul>
+      <ExerciseFilter initialExercises={exercises} />
     </main>
   );
 }

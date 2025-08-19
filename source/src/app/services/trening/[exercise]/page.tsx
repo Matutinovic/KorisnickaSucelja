@@ -58,13 +58,13 @@ export default async function ExerciseDetails({
         </Link>
         <h1 className="text-3xl font-extrabold mb-4">{exercise.name}</h1>
         {/* Uncomment below to show the gif if available */}
-        {exercise.gifUrl && (
+        {/* {exercise.gifUrl && (
           <img
             src={exercise.gifUrl}
             alt={exercise.name}
             className="w-full h-auto mb-4 rounded-lg"
           />
-        )}
+        )} */}
         <p className="mb-2">
           <strong>Body Part:</strong> {exercise.bodyPart}
         </p>

@@ -1,140 +1,160 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "name": "Bench Press",
+    "bodyPart": "Chest",
     "target": "Chest",
     "equipment": "Barbell",
     "instructions": "Lie flat on a bench and press the barbell upward."
   },
   {
-    "id": 2,
+    "id": "2",
     "name": "Incline Dumbbell Press",
+    "bodyPart": "Chest",
     "target": "Upper Chest",
     "equipment": "Dumbbells",
     "instructions": "Lie on an incline bench and press dumbbells upward."
   },
   {
-    "id": 3,
+    "id": "3",
     "name": "Push-ups",
+    "bodyPart": "Chest",
     "target": "Chest",
     "equipment": "Bodyweight",
     "instructions": "Start in plank position and lower your chest to the ground."
   },
   {
-    "id": 4,
+    "id": "4",
     "name": "Pull-ups",
+    "bodyPart": "Back",
     "target": "Back",
     "equipment": "Bar",
     "instructions": "Grip the bar with palms facing away and pull your body up."
   },
   {
-    "id": 5,
+    "id": "5",
     "name": "Lat Pulldown",
+    "bodyPart": "Back",
     "target": "Lats",
     "equipment": "Cable Machine",
     "instructions": "Pull the bar down towards your chest while seated."
   },
   {
-    "id": 6,
+    "id": "6",
     "name": "Deadlift",
+    "bodyPart": "Back",
     "target": "Lower Back",
     "equipment": "Barbell",
     "instructions": "Lift the barbell from the floor to a standing position."
   },
   {
-    "id": 7,
+    "id": "7",
     "name": "Barbell Row",
+    "bodyPart": "Back",
     "target": "Back",
     "equipment": "Barbell",
     "instructions": "Bend forward and row the barbell towards your waist."
   },
   {
-    "id": 8,
+    "id": "8",
     "name": "Bicep Curl",
+    "bodyPart": "Arms",
     "target": "Biceps",
     "equipment": "Dumbbells",
     "instructions": "Curl the dumbbells upward while keeping your elbows still."
   },
   {
-    "id": 9,
+    "id": "9",
     "name": "Tricep Dips",
+    "bodyPart": "Arms",
     "target": "Triceps",
     "equipment": "Bodyweight",
     "instructions": "Lower your body on parallel bars to target your triceps."
   },
   {
-    "id": 10,
+    "id": "10",
     "name": "Overhead Tricep Extension",
+    "bodyPart": "Arms",
     "target": "Triceps",
     "equipment": "Dumbbell",
     "instructions": "Extend a dumbbell overhead with both hands."
   },
   {
-    "id": 11,
+    "id": "11",
     "name": "Squats",
+    "bodyPart": "Legs",
     "target": "Legs",
     "equipment": "Barbell",
     "instructions": "Lower your body down into a squat position with a barbell."
   },
   {
-    "id": 12,
+    "id": "12",
     "name": "Lunges",
+    "bodyPart": "Legs",
     "target": "Legs",
     "equipment": "Dumbbells",
     "instructions": "Step forward into a lunge position while holding dumbbells."
   },
   {
-    "id": 13,
+    "id": "13",
     "name": "Leg Press",
+    "bodyPart": "Legs",
     "target": "Quads",
     "equipment": "Machine",
     "instructions": "Press the platform upward with your legs."
   },
   {
-    "id": 14,
+    "id": "14",
     "name": "Leg Curls",
+    "bodyPart": "Legs",
     "target": "Hamstrings",
     "equipment": "Machine",
     "instructions": "Curl your legs towards your body while seated."
   },
   {
-    "id": 15,
+    "id": "15",
     "name": "Leg Extensions",
+    "bodyPart": "Legs",
     "target": "Quads",
     "equipment": "Machine",
     "instructions": "Extend your legs upward while seated."
   },
   {
-    "id": 16,
+    "id": "16",
     "name": "Calf Raises",
+    "bodyPart": "Legs",
     "target": "Calves",
     "equipment": "Bodyweight",
     "instructions": "Raise your heels off the ground to target your calves."
   },
   {
-    "id": 17,
+    "id": "17",
     "name": "Plank",
+    "bodyPart": "Core",
     "target": "Core",
     "equipment": "Bodyweight",
     "instructions": "Hold your body straight in a plank position."
   },
   {
-    "id": 18,
+    "id": "18",
     "name": "Russian Twists",
+    "bodyPart": "Core",
     "target": "Obliques",
     "equipment": "Bodyweight",
     "instructions": "Twist your torso while seated with knees bent."
   },
   {
-    "id": 19,
+    "id": "19",
     "name": "Crunches",
+    "bodyPart": "Core",
     "target": "Abs",
     "equipment": "Bodyweight",
     "instructions": "Perform a crunch by raising your torso towards your knees."
   },
   {
-    "id": 20,
+    "id": "20",
     "name": "Mountain Climbers",
+    "bodyPart": "Core",
     "target": "Core",
     "equipment": "Bodyweight",
     "instructions": "Alternate bringing your knees toward your chest in a plank."

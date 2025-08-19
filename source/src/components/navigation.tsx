@@ -16,6 +16,7 @@ const pages: Page[] = [
   { title: "About us", path: "/about" },
   { title: "Contact us", path: "/contact" },
   { title: "Login", path: "/login" },
+  { title: "Register", path: "/register" },
 ];
 
 function processPage(page: Page, index: number, pathname: string) {
