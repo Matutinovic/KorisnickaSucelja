@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "@/../lib/prisma";
 
 // POST: Dodavanje tjedna
 export async function POST(req: NextRequest) {
@@ -20,7 +18,7 @@ export async function POST(req: NextRequest) {
         number,
         trainings: {
           create: {
-            trainingId,
+            trainingId: +trainingId,
           },
         },
       },
@@ -50,7 +48,7 @@ export async function GET(req: NextRequest) {
     }
 
     const weeks = await prisma.trainingOnWeek.findMany({
-      where: { trainingId },
+      where: { trainingId: +trainingId },
       include: { week: true },
     });
 

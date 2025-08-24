@@ -1,6 +1,6 @@
 -- CreateTable
 CREATE TABLE "User" (
-    "id" TEXT NOT NULL,
+    "id" SERIAL NOT NULL,
     "email" TEXT NOT NULL,
     "password" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -10,17 +10,17 @@ CREATE TABLE "User" (
 
 -- CreateTable
 CREATE TABLE "Training" (
-    "id" TEXT NOT NULL,
+    "id" SERIAL NOT NULL,
     "name" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "userId" TEXT NOT NULL,
+    "userId" INTEGER NOT NULL,
 
     CONSTRAINT "Training_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "Week" (
-    "id" TEXT NOT NULL,
+    "id" SERIAL NOT NULL,
     "number" INTEGER NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
@@ -29,17 +29,18 @@ CREATE TABLE "Week" (
 
 -- CreateTable
 CREATE TABLE "TrainingOnWeek" (
-    "id" TEXT NOT NULL,
-    "trainingId" TEXT NOT NULL,
-    "weekId" TEXT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "trainingId" INTEGER NOT NULL,
+    "weekId" INTEGER NOT NULL,
 
     CONSTRAINT "TrainingOnWeek_pkey" PRIMARY KEY ("id")
 );
 
 -- CreateTable
 CREATE TABLE "ExerciseEntry" (
-    "id" TEXT NOT NULL,
-    "trainingId" TEXT NOT NULL,
+    "id" SERIAL NOT NULL,
+    "trainingId" INTEGER NOT NULL,
+    "weekId" INTEGER NOT NULL,
     "name" TEXT NOT NULL,
     "sets" INTEGER NOT NULL,
     "reps" INTEGER NOT NULL,
@@ -65,3 +66,6 @@ ALTER TABLE "TrainingOnWeek" ADD CONSTRAINT "TrainingOnWeek_weekId_fkey" FOREIGN
 
 -- AddForeignKey
 ALTER TABLE "ExerciseEntry" ADD CONSTRAINT "ExerciseEntry_trainingId_fkey" FOREIGN KEY ("trainingId") REFERENCES "Training"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "ExerciseEntry" ADD CONSTRAINT "ExerciseEntry_weekId_fkey" FOREIGN KEY ("weekId") REFERENCES "Week"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

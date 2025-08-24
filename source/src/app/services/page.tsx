@@ -3,12 +3,12 @@
 import { useEffect, useState, FormEvent } from "react";
 
 type Training = {
-  id: string;
+  id: number;
   name: string;
 };
 
 type ExerciseEntry = {
-  id: string;
+  id: number;
   name: string;
   sets: number;
   reps: number;
@@ -16,25 +16,32 @@ type ExerciseEntry = {
 };
 
 type Week = {
-  id: string;
+  id: number;
   number: number;
+};
+
+type Exercise = {
+  name: string;
+  sets: string | number;
+  reps: string | number;
+  weight: string | number;
 };
 
 export default function ServicesPage() {
   const [trainings, setTrainings] = useState<Training[]>([]);
   const [newTrainingName, setNewTrainingName] = useState("");
-  const [selectedTrainingId, setSelectedTrainingId] = useState<string | null>(
+  const [selectedTrainingId, setSelectedTrainingId] = useState<number | null>(
     null
   );
   const [exercises, setExercises] = useState<ExerciseEntry[]>([]);
   const [weeks, setWeeks] = useState<Week[]>([]);
-  const [selectedWeekId, setSelectedWeekId] = useState<string | null>(null);
+  const [selectedWeekId, setSelectedWeekId] = useState<number | null>(null);
   const [newWeekNumber, setNewWeekNumber] = useState(1);
-  const [newExercise, setNewExercise] = useState({
+  const [newExercise, setNewExercise] = useState<Exercise>({
     name: "",
-    sets: 0,
-    reps: 0,
-    weight: 0,
+    sets: "",
+    reps: "",
+    weight: "",
   });
   const [isLoggedIn, setIsLoggedIn] = useState(false); // Dodaj stanje za logiranje
 
@@ -56,11 +63,11 @@ export default function ServicesPage() {
       const storedWeekId = localStorage.getItem("selectedWeekId");
 
       if (storedTrainingId) {
-        setSelectedTrainingId(storedTrainingId);
+        setSelectedTrainingId(+storedTrainingId);
       }
 
       if (storedWeekId) {
-        setSelectedWeekId(storedWeekId);
+        setSelectedWeekId(+storedWeekId);
       }
     };
     fetchTrainings();
@@ -70,7 +77,7 @@ export default function ServicesPage() {
   useEffect(() => {
     if (!selectedTrainingId) return;
 
-    localStorage.setItem("selectedTrainingId", selectedTrainingId);
+    localStorage.setItem("selectedTrainingId", selectedTrainingId.toString());
 
     const fetchWeeks = async () => {
       const res = await fetch(`/api/week?trainingId=${selectedTrainingId}`);
@@ -92,7 +99,7 @@ export default function ServicesPage() {
   useEffect(() => {
     if (!selectedWeekId) return;
 
-    localStorage.setItem("selectedWeekId", selectedWeekId);
+    localStorage.setItem("selectedWeekId", selectedWeekId.toString());
 
     const fetchExercises = async () => {
       const res = await fetch(`/api/exercise-entry?weekId=${selectedWeekId}`);
@@ -113,7 +120,7 @@ export default function ServicesPage() {
     const res = await fetch("/api/training", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: newTrainingName, userId }),
+      body: JSON.stringify({ name: newTrainingName, userId: +userId }),
     });
     const data = await res.json();
     if (data.success) {
@@ -155,8 +162,8 @@ export default function ServicesPage() {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        trainingId: selectedTrainingId,
-        weekId: selectedWeekId,
+        trainingId: +selectedTrainingId,
+        weekId: +selectedWeekId,
         ...newExercise,
       }),
     });
@@ -164,7 +171,7 @@ export default function ServicesPage() {
     const data = await res.json();
     if (data.success) {
       setExercises([...exercises, data.exerciseEntry]);
-      setNewExercise({ name: "", sets: 0, reps: 0, weight: 0 });
+      setNewExercise({ name: "", sets: "", reps: "", weight: "" });
     }
   };
 

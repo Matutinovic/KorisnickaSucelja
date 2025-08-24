@@ -1,11 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "@/../lib/prisma";
 
 export async function GET(req: NextRequest) {
   try {
-    const userId = req.nextUrl.searchParams.get("userId");
+    const userId = Number(req.nextUrl.searchParams.get("userId"));
 
     if (!userId) {
       return NextResponse.json({ trainings: [] });
@@ -20,7 +18,7 @@ export async function GET(req: NextRequest) {
   } catch (error) {
     console.error("Greška pri dohvaćanju treninga:", error);
     return NextResponse.json(
-      { trainings: [], success: false, message: "Greška na serveru" },
+      { trainings: [], success: false, message: error },
       { status: 500 }
     );
   }
@@ -40,19 +38,7 @@ export async function POST(req: NextRequest) {
     const newTraining = await prisma.training.create({
       data: {
         name,
-        userId,
-        weeks: {
-          create: {
-            week: {
-              create: {
-                number: 1,
-              },
-            },
-          },
-        },
-      },
-      include: {
-        weeks: true,
+        userId: +userId,
       },
     });
 

@@ -3,59 +3,55 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
-  directUrl = env("DIRECT_URL" )
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
+  id        Int        @id @default(autoincrement())
+  email     String     @unique
   password  String
-  createdAt DateTime @default(now())
+  createdAt DateTime   @default(now())
   trainings Training[]
 }
 
 model Training {
-  id          String           @id @default(cuid())
-  name        String
-  createdAt   DateTime         @default(now())
-  user        User             @relation(fields: [userId], references: [id])
-  userId      String
-  exercises   ExerciseEntry[]
-  weeks       TrainingOnWeek[]
+  id        Int              @id @default(autoincrement())
+  name      String
+  createdAt DateTime         @default(now())
+  userId    Int
+  exercises ExerciseEntry[]
+  user      User             @relation(fields: [userId], references: [id])
+  weeks     TrainingOnWeek[]
 }
 
 model Week {
-  id          String           @id @default(cuid())
-  number      Int
-  createdAt   DateTime         @default(now())
-  trainings   TrainingOnWeek[]
-  exercises   ExerciseEntry[] 
+  id        Int              @id @default(autoincrement())
+  number    Int
+  createdAt DateTime         @default(now())
+  exercises ExerciseEntry[]
+  trainings TrainingOnWeek[]
 }
 
-
 model TrainingOnWeek {
-  id          String   @id @default(cuid())
-  training    Training @relation(fields: [trainingId], references: [id])
-  trainingId  String
-  week        Week     @relation(fields: [weekId], references: [id])
-  weekId      String
+  id         Int      @id @default(autoincrement())
+  trainingId Int
+  weekId     Int
+  training   Training @relation(fields: [trainingId], references: [id])
+  week       Week     @relation(fields: [weekId], references: [id])
 
-  @@unique([trainingId, weekId]) // sprječava duple zapise
+  @@unique([trainingId, weekId])
 }
 
 model ExerciseEntry {
-  id         String   @id @default(cuid())
-  training   Training @relation(fields: [trainingId], references: [id])
-  trainingId String
-
-  week       Week     @relation(fields: [weekId], references: [id])
-  weekId     String
-
+  id         Int      @id @default(autoincrement())
+  trainingId Int
+  weekId     Int
   name       String
   sets       Int
   reps       Int
   weight     Float
+  training   Training @relation(fields: [trainingId], references: [id])
+  week       Week     @relation(fields: [weekId], references: [id])
 }
-

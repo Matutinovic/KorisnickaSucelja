@@ -1,9 +1,8 @@
 // app/api/login/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcryptjs"; //za hasiranje lozinki
+import prisma from "@/../lib/prisma";
 
-const prisma = new PrismaClient();
+import bcrypt from "bcryptjs"; //za hasiranje lozinki
 
 export async function POST(req: NextRequest) {
   const { email, password } = await req.json();

@@ -1,7 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
+import prisma from "@/../lib/prisma";
 
 // POST: Dodavanje nove vježbe
 export async function POST(req: NextRequest) {
@@ -22,7 +20,14 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    console.log("POST exerciseEntry payload:", { trainingId, weekId, name, sets, reps, weight });
+    console.log("POST exerciseEntry payload:", {
+      trainingId,
+      weekId,
+      name,
+      sets,
+      reps,
+      weight,
+    });
 
     const exerciseEntry = await prisma.exerciseEntry.create({
       data: {
@@ -57,7 +62,7 @@ export async function GET(req: NextRequest) {
     }
 
     const exercises = await prisma.exerciseEntry.findMany({
-      where: { weekId },
+      where: { weekId: +weekId },
     });
 
     return NextResponse.json({ success: true, exercises });

@@ -18,6 +18,10 @@ const pages: Page[] = [
     title: "Vjezbe",
     path: "/services/vjezbe",
   },
+  {
+    title: "Napredak",
+    path:"/services/napredak"
+  },
 ];
 
 function processPage(page: Page, index: number, pathname: string) {
