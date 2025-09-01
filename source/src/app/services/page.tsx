@@ -196,18 +196,18 @@ export default function ServicesPage() {
             onClick={handleLogout}
             className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
           >
-            Odjava
+            Log out
           </button>
         )}
       </div>
 
-      <h1 className="text-3xl font-bold text-center">Pregled tjedna</h1>
+      <h1 className="text-3xl font-bold text-center">Week overview</h1>
 
       {/* Ostatak koda ostaje isti */}
       <form onSubmit={handleCreateTraining} className="flex gap-4">
         <input
           type="text"
-          placeholder="Naziv plana"
+          placeholder="Plan name"
           value={newTrainingName}
           onChange={(e) => setNewTrainingName(e.target.value)}
           className="border p-2 rounded w-full"
@@ -217,7 +217,7 @@ export default function ServicesPage() {
           type="submit"
           className="bg-blue-600 text-white px-4 py-2 rounded"
         >
-          Dodaj plan
+          Add plan
         </button>
       </form>
 
@@ -247,7 +247,7 @@ export default function ServicesPage() {
           {/* Tjedni */}
           {selectedTrainingId && (
             <div className="space-y-4">
-              <h2 className="text-xl font-semibold">Tjedni:</h2>
+              <h2 className="text-xl font-semibold">Weeks:</h2>
               <div className="flex flex-wrap gap-2">
                 {weeks.map((week) => (
                   <button
@@ -259,7 +259,7 @@ export default function ServicesPage() {
                         : "bg-white"
                     }`}
                   >
-                    Tjedan {week.number}
+                    Week {week.number}
                   </button>
                 ))}
               </div>
@@ -278,7 +278,7 @@ export default function ServicesPage() {
                   type="submit"
                   className="bg-purple-600 text-white px-4 py-2 rounded"
                 >
-                  Dodaj tjedan
+                  Add week
                 </button>
               </form>
             </div>
@@ -289,14 +289,14 @@ export default function ServicesPage() {
       {/* Dodavanje vježbi */}
       {selectedWeekId && (
         <div className="space-y-6">
-          <h2 className="text-xl font-semibold">Dodaj vježbu</h2>
+          <h2 className="text-xl font-semibold">Add exercise</h2>
           <form
             onSubmit={handleAddExercise}
             className="grid grid-cols-1 sm:grid-cols-4 gap-4"
           >
             <input
               type="text"
-              placeholder="Naziv vježbe"
+              placeholder="Exercise name"
               value={newExercise.name}
               onChange={(e) =>
                 setNewExercise({ ...newExercise, name: e.target.value })
@@ -306,7 +306,7 @@ export default function ServicesPage() {
             />
             <input
               type="number"
-              placeholder="Serije"
+              placeholder="Sets"
               value={newExercise.sets}
               onChange={(e) =>
                 setNewExercise({ ...newExercise, sets: Number(e.target.value) })
@@ -316,7 +316,7 @@ export default function ServicesPage() {
             />
             <input
               type="number"
-              placeholder="Ponavljanja"
+              placeholder="Repetitions"
               value={newExercise.reps}
               onChange={(e) =>
                 setNewExercise({ ...newExercise, reps: Number(e.target.value) })
@@ -326,7 +326,7 @@ export default function ServicesPage() {
             />
             <input
               type="number"
-              placeholder="Težina (kg)"
+              placeholder="Weight (kg)"
               value={newExercise.weight}
               onChange={(e) =>
                 setNewExercise({
@@ -342,7 +342,7 @@ export default function ServicesPage() {
                 type="submit"
                 className="w-full bg-green-600 text-white py-2 rounded"
               >
-                Dodaj vježbu
+                Add exercise
               </button>
             </div>
           </form>

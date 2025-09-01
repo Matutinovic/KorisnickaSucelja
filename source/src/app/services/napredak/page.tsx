@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react"; // Dodan useEffect za fetch treninga.
+import Link from "next/link";
+import { useState, useEffect } from "react";
 import {
   LineChart,
   Line,
@@ -11,6 +12,7 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
+import LogoutButton from "@/components/LogoutButton";
 
 // Tipovi
 type Training = {
@@ -30,21 +32,26 @@ type PRData = {
 };
 
 export default function PRProgressPage() {
-  const [trainings, setTrainings] = useState<Training[]>([]); // Lista treninga za dropdown.
-  const [selectedTrainingId, setSelectedTrainingId] = useState<string>(""); // Izabrani trening.
+  const [trainings, setTrainings] = useState<Training[]>([]);
+  const [selectedTrainingId, setSelectedTrainingId] = useState<string>("");
   const [exerciseName, setExerciseName] = useState("");
   const [prData, setPRData] = useState<PRData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [showLogout, setShowLogout] = useState(false);
 
-  const userId =
-    typeof window !== "undefined" ? localStorage.getItem("userId") : null;
-
-  // Fetch treninga za korisnika pri učitavanju stranice.
   useEffect(() => {
-    if (!userId) return;
+    if (typeof window !== "undefined") {
+      const userId = localStorage.getItem("userId");
+      if (userId) {
+        setShowLogout(true);
+      }
+    }
 
     const fetchTrainings = async () => {
+      const userId = localStorage.getItem("userId");
+      if (!userId) return;
+
       try {
         const res = await fetch(`/api/training?userId=${userId}`);
         const data = await res.json();
@@ -62,8 +69,9 @@ export default function PRProgressPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const userId = localStorage.getItem("userId");
     if (!userId || !selectedTrainingId || !exerciseName) {
-      setError("Potreban je trening i naziv vežbe.");
+      setError("Training and exercise name are required");
       return;
     }
 
@@ -97,10 +105,10 @@ export default function PRProgressPage() {
 
         setPRData(formattedData);
       } else {
-        setError(data.message || "Greška pri dohvatanju podataka.");
+        setError(data.message || "Error retrieving data.");
       }
     } catch {
-      setError("Greška pri fetch-u.");
+      setError("Error");
     } finally {
       setIsLoading(false);
     }
@@ -108,7 +116,13 @@ export default function PRProgressPage() {
 
   return (
     <main className="max-w-4xl mx-auto p-6 space-y-10">
-      <h1 className="text-3xl font-bold text-center">Napredak (PR) za vežbu</h1>
+      <div className="flex justify-between items-center w-full max-w-4xl mb-6">
+        <Link href="/services" className="text-blue-600 hover:underline px-4 py-2 rounded">
+          Back to Services
+        </Link>
+        {showLogout && <LogoutButton />}
+      </div>
+      <h1 className="text-3xl font-bold text-center">Progress (PR) for exercise</h1>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <select
@@ -117,7 +131,7 @@ export default function PRProgressPage() {
           className="border p-2 rounded w-full"
           required
         >
-          <option value="">Odaberi trening</option>
+          <option value="">Choose training</option>
           {trainings.map((training) => (
             <option key={training.id} value={training.id}>
               {training.name}
@@ -126,7 +140,7 @@ export default function PRProgressPage() {
         </select>
         <input
           type="text"
-          placeholder="Naziv vežbe (npr. Bench Press)"
+          placeholder="Exercise name (Bench Press)"
           value={exerciseName}
           onChange={(e) => setExerciseName(e.target.value)}
           className="border p-2 rounded w-full"
@@ -137,12 +151,12 @@ export default function PRProgressPage() {
           className="bg-blue-600 text-white px-4 py-2 rounded"
           disabled={isLoading}
         >
-          Pokaži PR
+          Show personal record PR
         </button>
       </form>
 
       {error && <p className="text-red-600">{error}</p>}
-      {isLoading && <p className="text-gray-600">Dohvaćam podatke...</p>}
+      {isLoading && <p className="text-gray-600">Retrieving data...</p>}
 
       {prData.length > 0 ? (
         <div className="h-96">
@@ -178,7 +192,7 @@ export default function PRProgressPage() {
       ) : (
         !isLoading && (
           <p className="text-gray-600">
-            Nema podataka za prikaz. Odaberite trening i unesite vežbu.
+            There is no data to display. Select a workout and enter an exercise.
           </p>
         )
       )}

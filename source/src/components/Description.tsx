@@ -1,11 +1,13 @@
 "use client";
 
 const Description = () => (
-  <p className="absolute left-[5%] top-[45%] w-[80%] sm:w-[60%] text-black text-xl sm:text-2xl font-bold leading-snug z-20 sm:left-[3%] sm:top-[48%]">
-    Our application allows you to monitor your fitness through ready-made
-    training plans or those you create yourself. The intuitive interface makes
-    it easy to customize training plans to perfectly match your goals and
-    fitness level.
+  <p className="text-xl sm:text-2xl font-bold leading-snug text-center mb-12 max-w-3xl mx-auto">
+    Our application enables you to create and manage your own training plans,
+    select specific weeks, and log exercises like Bench Press or Lat Pulldown
+    with sets, repetitions, and weights. With the Exercises section, you can
+    filter by body part and search through a comprehensive list of exercises.
+    Track your progress with a graph displaying your Personal Record PR
+    improvements over time.
   </p>
 );
 

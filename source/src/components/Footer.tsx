@@ -1,4 +1,5 @@
-import { FaInstagram, FaFacebookF, FaEnvelope } from "react-icons/fa";
+import Link from "next/link";
+import { FaEnvelope } from "react-icons/fa";
 
 const Footer = () => (
   <div className="flex flex-col min-h-screen">
@@ -14,25 +15,11 @@ const Footer = () => (
           the results!
         </p>
 
-        {/* Ikone društvenih mreža */}
-        <div className="flex justify-center space-x-4 sm:space-x-6">
-          <a
-            href="https://www.instagram.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaInstagram className="text-2xl sm:text-3xl hover:text-green-500 transition duration-300" />
-          </a>
-          <a
-            href="https://www.facebook.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaFacebookF className="text-2xl sm:text-3xl hover:text-blue-500 transition duration-300" />
-          </a>
-          <a href="mailto:example@email.com">
+        {/* Ikona emaila */}
+        <div className="flex justify-center">
+          <Link href="mailto:cimameruj@gmail.com">
             <FaEnvelope className="text-2xl sm:text-3xl hover:text-yellow-500 transition duration-300" />
-          </a>
+          </Link>
         </div>
       </div>
     </footer>

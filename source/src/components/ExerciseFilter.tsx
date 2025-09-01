@@ -41,7 +41,7 @@ export default function ExerciseFilter({ initialExercises }: ExerciseFilterProps
     <div className="w-full max-w-2xl mb-6">
       <input
         type="text"
-        placeholder="Pretraži vežbe..."
+        placeholder="Search exercises..."
         value={search}
         onChange={(e) => setSearch(e.target.value)}
         className="w-full p-2 mb-4 border rounded"
@@ -53,7 +53,7 @@ export default function ExerciseFilter({ initialExercises }: ExerciseFilterProps
       >
         {bodyParts.map((part) => (
           <option key={part} value={part}>
-            {part === "all" ? "Svi delovi tela" : part}
+            {part === "all" ? "All body parts" : part}
           </option>
         ))}
       </select>

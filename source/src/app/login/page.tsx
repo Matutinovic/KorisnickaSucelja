@@ -33,7 +33,7 @@ export default function LoginPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-10">
-      <h1 className="text-4xl font-bold mb-6">Prijava</h1>
+      <h1 className="text-4xl font-bold mb-6">Log in</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-80">
         <input
           type="email"
@@ -57,9 +57,9 @@ export default function LoginPage() {
       </form>
 
       <p className="text-sm mt-4">
-        Nemaš račun?{" "}
+        You dont have an account?{" "}
         <Link href="/register" className="text-blue-600 underline">
-          Registriraj se
+          Register
         </Link>
       </p>
     </main>

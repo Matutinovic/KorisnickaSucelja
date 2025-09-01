@@ -33,10 +33,8 @@ export default async function BlogPostPage({ params }: Props) {
   if (!post) return notFound();
 
   return (
-    <main className="p-10 max-w-3xl mx-auto">
+    <main className="p-10 max-w-3xl mx-auto mt-20">
       <h1 className="text-4xl font-bold mb-4">{post.fields.title}</h1>
-
-    
 
       <p className="text-lg text-gray-700 whitespace-pre-line">
         {post.fields.body}

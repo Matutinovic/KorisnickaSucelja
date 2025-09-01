@@ -1,12 +1,19 @@
 "use client";
+
+import Link from "next/link";
+
 const ButtonGroup = () => (
-  <div className="absolute left-[5%] top-[78%] sm:left-[10%] sm:top-[72%] flex space-x-4 sm:space-x-8 z-20">
-    <button className="w-40 px-5 py-2 text-white bg-black text-lg font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300">
-      SIGN IN
-    </button>
-    <button className="w-40 px-5 py-2 text-black border-2 border-black text-lg font-semibold rounded-lg hover:bg-black hover:text-white transition-all duration-300">
-      FREE TRIAL
-    </button>
+  <div className="flex space-x-2 sm:space-x-4 md:space-x-8 mb-16">
+    <Link href="/login">
+      <button className="w-28 sm:w-32 md:w-40 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 text-sm sm:text-base md:text-lg text-white bg-black font-semibold rounded-lg hover:bg-gray-800 transition-all duration-300">
+        SIGN IN
+      </button>
+    </Link>
+    <Link href="/about">
+      <button className="w-28 sm:w-32 md:w-40 px-3 sm:px-4 md:px-5 py-1.5 sm:py-2 text-sm sm:text-base md:text-lg text-black border-2 border-black font-semibold rounded-lg hover:bg-black hover:text-white transition-all duration-300">
+        About Us
+      </button>
+    </Link>
   </div>
 );
 

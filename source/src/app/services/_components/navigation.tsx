@@ -11,16 +11,12 @@ type Page = {
 // We hardcode pages here, but you could get this information from some external source (e.g. CMS, DB, config file, etc).
 const pages: Page[] = [
   {
-    title: "Trening",
+    title: "Exercises",
     path: "/services/trening", //zasto san triba dodat pages, al ne ostane vec ta putanja
   },
   {
-    title: "Vjezbe",
-    path: "/services/vjezbe",
-  },
-  {
-    title: "Napredak",
-    path:"/services/napredak"
+    title: "Progress",
+    path: "/services/napredak",
   },
 ];
 

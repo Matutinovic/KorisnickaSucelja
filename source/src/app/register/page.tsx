@@ -1,10 +1,12 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 export default function RegisterPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -18,16 +20,18 @@ export default function RegisterPage() {
     const data = await res.json();
 
     if (data.success) {
-      alert("Registracija uspješna!");
+      alert("Registration successful  !");
+      localStorage.setItem("userId", data.userId);
+      router.push("/services");
       // redirect to login
     } else {
-      alert(data.message || "Greška pri registraciji");
+      alert(data.message || "Error");
     }
   };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center p-10">
-      <h1 className="text-4xl font-bold mb-6">Registracija</h1>
+      <h1 className="text-4xl font-bold mb-6">Registration</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 w-80">
         <input
           type="email"
@@ -46,7 +50,7 @@ export default function RegisterPage() {
           required
         />
         <button type="submit" className="bg-green-600 text-white p-2 rounded">
-          Registriraj se
+          Register
         </button>
       </form>
     </main>
