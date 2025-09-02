@@ -12,7 +12,6 @@ import {
   Legend,
   ResponsiveContainer,
 } from "recharts";
-import LogoutButton from "@/components/LogoutButton";
 
 // Tipovi
 type Training = {
@@ -38,16 +37,8 @@ export default function PRProgressPage() {
   const [prData, setPRData] = useState<PRData[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [showLogout, setShowLogout] = useState(false);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const userId = localStorage.getItem("userId");
-      if (userId) {
-        setShowLogout(true);
-      }
-    }
-
     const fetchTrainings = async () => {
       const userId = localStorage.getItem("userId");
       if (!userId) return;
@@ -117,12 +108,16 @@ export default function PRProgressPage() {
   return (
     <main className="max-w-4xl mx-auto p-6 space-y-10">
       <div className="flex justify-between items-center w-full max-w-4xl mb-6">
-        <Link href="/services" className="text-blue-600 hover:underline px-4 py-2 rounded">
+        <Link
+          href="/services"
+          className="text-blue-600 hover:underline px-4 py-2 rounded"
+        >
           Back to Services
         </Link>
-        {showLogout && <LogoutButton />}
       </div>
-      <h1 className="text-3xl font-bold text-center">Progress (PR) for exercise</h1>
+      <h1 className="text-3xl font-bold text-center">
+        Progress (PR) for exercise
+      </h1>
 
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <select

@@ -2,7 +2,6 @@ import fs from "fs";
 import path from "path";
 import Link from "next/link";
 import ExerciseFilter from "@/components/ExerciseFilter";
-import LogoutButton from "@/components/LogoutButton";
 
 type Exercise = {
   id: string;
@@ -87,7 +86,6 @@ export default async function TrainingPage({
         <Link href="/services" className="text-blue-600 hover:underline px-4 py-2 rounded">
           Back to Services
         </Link>
-        <LogoutButton />
       </div>
       <h1 className="text-4xl font-extrabold mb-10">All Exercises</h1>
       <Pagination currentPage={currentPage} pagesCount={pagesCount} />
