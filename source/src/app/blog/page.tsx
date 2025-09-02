@@ -22,7 +22,9 @@ export default async function BlogPage() {
 
   return (
     <main className="flex min-h-screen flex-col items-center p-10 pt-20">
-      <h1 className="text-6xl font-extrabold tracking-tight mb-6">Blog</h1>
+      <h1 className="text-4xl sm:text-6xl font-extrabold tracking-tight mb-6">
+        Blog
+      </h1>
       <ul className="space-y-10 w-full max-w-2xl">
         {entries.items.map((item) => (
           <li key={item.sys.id} className="border p-4 rounded shadow">

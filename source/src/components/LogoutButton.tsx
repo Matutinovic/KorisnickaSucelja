@@ -10,14 +10,12 @@ export default function LogoutButton() {
     router.push("/services");
   };
 
-  return (
-    typeof window !== "undefined" && localStorage.getItem("userId") ? (
-      <button
-        onClick={handleLogout}
-        className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-      >
-        Log out
-      </button>
-    ) : null
-  );
+  return typeof window !== "undefined" && localStorage.getItem("userId") ? (
+    <button
+      onClick={handleLogout}
+      className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
+    >
+      Log out
+    </button>
+  ) : null;
 }

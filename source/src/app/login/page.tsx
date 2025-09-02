@@ -2,12 +2,10 @@
 
 import Link from "next/link";
 import { useState, FormEvent } from "react";
-import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const router = useRouter();
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
@@ -23,7 +21,7 @@ export default function LoginPage() {
     if (data.success && data.userId) {
       alert("Uspješna prijava!");
       localStorage.setItem("userId", data.userId); // spremi korisnikov ID
-      router.push("/services");
+      window.location.href = "/services";
       // Možeš redirectati korisnika na dashboard, npr:
       // router.push("/dashboard");
     } else {

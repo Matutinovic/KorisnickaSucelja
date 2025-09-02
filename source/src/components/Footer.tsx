@@ -2,9 +2,8 @@ import Link from "next/link";
 import { FaEnvelope } from "react-icons/fa";
 
 const Footer = () => (
-  <div className="flex flex-col min-h-screen">
+  <div className="flex flex-col pt-10">
     {/* Glavni sadržaj stranice */}
-    <main className="flex-grow">{/* Tvoj glavni sadržaj */}</main>
 
     {/* Footer */}
     <footer className="bg-gray-900 text-white py-8 sm:py-12 mt-auto">

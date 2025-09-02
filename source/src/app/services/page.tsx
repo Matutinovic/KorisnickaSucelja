@@ -43,7 +43,7 @@ export default function ServicesPage() {
     reps: "",
     weight: "",
   });
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Dodaj stanje za logiranje
+  const [, setIsLoggedIn] = useState(false); // Dodaj stanje za logiranje
 
   // Dohvati userId i postavi stanje nakon učitavanja na klijentu
   useEffect(() => {
@@ -175,32 +175,8 @@ export default function ServicesPage() {
     }
   };
 
-  const handleLogout = () => {
-    localStorage.removeItem("userId");
-    localStorage.removeItem("selectedTrainingId");
-    localStorage.removeItem("selectedWeekId");
-    setIsLoggedIn(false);
-    setTrainings([]);
-    setSelectedTrainingId(null);
-    setWeeks([]);
-    setSelectedWeekId(null);
-    setExercises([]);
-    // window.location.reload(); // Opcionalno, ako želiš osvježiti stranicu
-  };
-
   return (
     <main className="max-w-4xl mx-auto p-6 space-y-10">
-      <div className="flex justify-end">
-        {isLoggedIn && (
-          <button
-            onClick={handleLogout}
-            className="bg-red-600 text-white px-4 py-2 rounded hover:bg-red-700"
-          >
-            Log out
-          </button>
-        )}
-      </div>
-
       <h1 className="text-3xl font-bold text-center">Week overview</h1>
 
       {/* Ostatak koda ostaje isti */}

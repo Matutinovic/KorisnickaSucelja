@@ -61,7 +61,8 @@ const Page = () => (
     </div>
 
     {/* Novi */}
-    <div className="flex flex-col sm:flex-row justify-between items-center mt-20 px-5 sm:px-10">
+
+    <div className="flex flex-col sm:flex-row justify-between items-center px-5 sm:px-10">
       {/* Slike */}
       <div className="flex-shrink-0 mb-6 sm:mb-0 sm:mr-10">
         <Image
@@ -76,9 +77,16 @@ const Page = () => (
       {/* Natuknice s desne strane */}
       <BulletPoints />
     </div>
-
-    <div className="h-[100px]"></div>
-    <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center mt-20 px-5 sm:px-10">
+    <div className="flex-shrink-0 sm:mr-10 z-10 mt-6 sm:mt-0">
+      <Image
+        src="/dijagram.png"
+        alt="Benc"
+        width={400}
+        height={300}
+        className="rounded-lg md:hidden block"
+      />
+    </div>
+    <div className="flex flex-col sm:flex-row justify-center sm:justify-between items-center sm:mt-20 px-5 sm:px-10 mt-10">
       {/* BulletPoints2 */}
       <BulletPoints2 />
 
@@ -89,7 +97,7 @@ const Page = () => (
           alt="Benc"
           width={400}
           height={300}
-          className="rounded-lg"
+          className="rounded-lg hidden md:block"
         />
       </div>
     </div>
